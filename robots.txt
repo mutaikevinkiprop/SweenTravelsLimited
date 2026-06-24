@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Keep crawlers away from the lead handler and backups
+Disallow: /send-lead.php
+Disallow: /leads.csv
+Disallow: /private/
+
+Sitemap: https://sweentravels.co.ke/sitemap.xml

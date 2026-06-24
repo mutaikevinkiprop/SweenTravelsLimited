@@ -1,0 +1,98 @@
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer class="footer-bg bg-black pt-16 pb-8" aria-label="Footer">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
+
+      <!-- Brand -->
+      <div class="lg:col-span-1">
+        <a href="index.html" class="flex items-center gap-3 mb-5" aria-label="SweenTravels home">
+
+          <!-- White Logo Wrapper -->
+          <div
+            class="w-8 h-8 rounded-full bg-white flex items-center justify-center overflow-hidden shadow-[0_4px_15px_rgba(255,106,0,0.25)]">
+            <img src="images/sween-travels-logo.png" alt="Sween Travels Logo" class="w-5 h-5 object-contain" />
+          </div>
+
+          <span class="font-serif text-xl text-white tracking-tight">
+            Sween Travels
+          </span>
+        </a>
+
+        <p class="text-white/50 text-sm leading-relaxed mb-6 max-w-xs">
+          Building bridges for your global future, expert immigration services worldwide.
+        </p>
+
+        <!-- Newsletter -->
+        <form class="space-y-3" name="newsletter" method="POST" action="send-lead.php" aria-label="Newsletter subscription" onsubmit="return handleNewsletter(event)">
+          <input type="hidden" name="form-name" value="newsletter" />
+          <p class="hidden" aria-hidden="true"><label>Leave blank: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
+          <div class="flex gap-2">
+            <input type="email" name="email" placeholder="Your email" aria-label="Email address" autocomplete="email" required
+              class="nl-input flex-1 bg-white/10 border border-white/20 text-white placeholder-white/30 text-sm px-4 py-2.5 rounded-full min-w-0" />
+            <button type="submit"
+              class="tag-pill text-white text-sm font-medium px-4 py-2.5 rounded-full hover:opacity-90 transition-opacity shrink-0">
+              Subscribe
+            </button>
+          </div>
+          <label class="flex items-start gap-2 text-[11px] text-white/40 leading-relaxed">
+            <input type="checkbox" name="privacy-consent" value="yes" required class="mt-0.5 h-3.5 w-3.5 rounded border-white/20 bg-white/10" />
+            <span>I agree to receive updates and accept the <a href="privacy.html" class="text-white/70 hover:text-white underline underline-offset-2">Privacy Policy</a>.</span>
+          </label>
+        </form>
+      </div>
+
+      <!-- Pages -->
+      <div>
+        <h4 class="text-white font-semibold text-sm mb-5">Pages</h4>
+        <ul class="space-y-3 text-sm text-white/50">
+          <li><a href="index.html" class="hover:text-white transition-colors">Start Here</a></li>
+          <li><a href="immigration.html" class="hover:text-white transition-colors">Explore Immigration</a></li>
+          <li><a href="visa.html" class="hover:text-white transition-colors">Apply for Visa</a></li>
+          <li><a href="about.html" class="hover:text-white transition-colors">Meet the Team</a></li>
+          <li><a href="contact.html" class="hover:text-white transition-colors">Start Your Journey</a></li>
+        </ul>
+      </div>
+
+      <!-- Resources (Replaced Utility) -->
+      <div>
+        <h4 class="text-white font-semibold text-sm mb-5">Resources</h4>
+        <ul class="space-y-3 text-sm text-white/50">
+          <li><a href="visa-guide.html" class="hover:text-white transition-colors">Visa Guide</a></li>
+          <li><a href="country-requirements.html" class="hover:text-white transition-colors">Country Requirements</a></li>
+          <li><a href="application-checklist.html" class="hover:text-white transition-colors">Application Checklist</a></li>
+          <li><a href="faq.html" class="hover:text-white transition-colors">FAQs</a></li>
+          <li><a href="privacy.html" class="hover:text-white transition-colors">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h4 class="text-white font-semibold text-sm mb-5">Contact</h4>
+        <ul class="space-y-3 text-sm text-white/50 mb-6">
+          <li><a href="tel:+254759187912" class="hover:text-white transition-colors">(+254) 759 187 912</a></li>
+          <li><a href="mailto:sweentravelslimited@gmail.com"
+              class="hover:text-white transition-colors">sweentravelslimited@gmail.com</a></li>
+        </ul>
+        <div class="text-sm text-white/50">
+          <p>View Park Towers – 15th Floor, Utalii Lane.</p>
+          <p class="mt-1">Mon–Sat: 9 AM – 6 PM</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-white/30 text-xs">
+        © <span id="year"></span> Sween Travels Limited. All rights reserved.
+      </p>
+      <p class="text-white/30 text-xs flex items-center gap-2">
+        <span>Developed by</span>
+        <span style="font-family:'DM Serif Display',serif; font-weight:600; font-size:1.05rem; letter-spacing:.12em; background:linear-gradient(120deg,#FB923C 0%,#F97316 45%,#EA580C 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent; text-shadow:0 0 18px rgba(249,115,22,.35); padding-left:.1em;">MKK</span>
+      </p>
+    </div>
+
+  </div>
+</footer>

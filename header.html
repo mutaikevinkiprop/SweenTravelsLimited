@@ -1,0 +1,345 @@
+<!-- ============================================================
+     STICKY NAV  —  redesigned responsive header
+============================================================ -->
+<style>
+  /* ---- Scoped header design system ---------------------------------- */
+  #navbar { --st-orange:#F97316; --st-ember:#EA580C; --st-ink:#0A0A0A; }
+  body.st-menu-lock{ overflow:hidden; }
+
+  /* Glass shell that sits inside the bar */
+  #navbar .st-shell{
+    position:relative;
+    border-radius:18px;
+    transition:background .35s ease, box-shadow .35s ease, border-color .35s ease, backdrop-filter .35s ease;
+    border:1px solid transparent;
+  }
+  /* Top-of-page: floating translucent pill on light hero */
+  #navbar:not(.scrolled) .st-shell{
+    background:rgba(255,255,255,.55);
+    border-color:rgba(10,10,10,.06);
+    box-shadow:0 6px 24px -12px rgba(10,10,10,.18);
+    -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  }
+  /* Scrolled: solid, crisp */
+  #navbar.scrolled .st-shell,
+  #navbar.menu-open .st-shell{
+    background:rgba(255,255,255,.94);
+    border-color:rgba(10,10,10,.08);
+    box-shadow:0 10px 30px -14px rgba(10,10,10,.28);
+    -webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);
+  }
+
+  /* Journey / route line — the signature element */
+  #navbar .st-route{
+    position:absolute; left:16px; right:16px; bottom:0; height:2px; overflow:hidden;
+    border-bottom-left-radius:18px; border-bottom-right-radius:18px;
+    opacity:0; transition:opacity .4s ease; pointer-events:none;
+  }
+  #navbar.scrolled .st-route,
+  #navbar.menu-open .st-route{ opacity:1; }
+  #navbar .st-route::before{
+    content:""; position:absolute; inset:0;
+    background:linear-gradient(90deg,transparent 0%,rgba(249,115,22,.0) 8%,
+      var(--st-orange) 38%,var(--st-ember) 50%,var(--st-orange) 62%,
+      rgba(249,115,22,0) 92%,transparent 100%);
+    background-size:220% 100%;
+    animation:st-route-move 6s linear infinite;
+  }
+  @keyframes st-route-move{ from{background-position:120% 0} to{background-position:-120% 0} }
+
+  /* Logo mark */
+  #navbar .st-mark{
+    position:relative; width:42px;height:42px;border-radius:9999px;
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+    background:radial-gradient(120% 120% at 30% 20%,#fff 0%,#fff 55%,#FFF1E8 100%);
+    box-shadow:0 4px 14px -6px rgba(234,88,12,.45), inset 0 0 0 1px rgba(234,88,12,.18);
+  }
+  #navbar .st-mark img{ width:30px;height:30px;object-fit:contain; }
+  /* orbiting accent dot */
+  #navbar .st-orbit{
+    position:absolute; inset:-3px; border-radius:9999px; pointer-events:none;
+    animation:st-spin 7s linear infinite;
+  }
+  #navbar .st-orbit::after{
+    content:""; position:absolute; top:-1px; left:50%; width:6px;height:6px;
+    border-radius:9999px; background:var(--st-orange);
+    box-shadow:0 0 8px 1px rgba(249,115,22,.7); transform:translateX(-50%);
+  }
+  @keyframes st-spin{ from{transform:rotate(0)} to{transform:rotate(360deg)} }
+
+  #navbar .st-brand{ line-height:1; }
+  #navbar .st-brand .st-name{ font-family:'DM Serif Display',serif; font-size:1.18rem; color:var(--st-ink); letter-spacing:-.01em; }
+  #navbar .st-brand .st-tag{
+    display:block; font-size:.6rem; font-weight:600; letter-spacing:.22em;
+    text-transform:uppercase; color:var(--st-ember); margin-top:3px;
+  }
+
+  /* Header nav links: desktop only */
+  #navbar .st-nav{ display:none; align-items:center; gap:.35rem; }
+  @media (min-width:1024px){
+    #navbar ul.st-nav{
+      display:flex;
+      position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+    }
+  }
+  #navbar .st-nav a{
+    position:relative; font-size:.85rem; font-weight:500; color:#1c1c1c;
+    padding:.5rem .95rem; border-radius:10px; white-space:nowrap;
+    transition:color .2s ease, background .2s ease;
+  }
+  #navbar .st-nav a::after,
+  #navbar .st-mobile-menu a::after{ display:none !important; } /* override global underline */
+  #navbar .st-nav a:hover{ color:var(--st-ember); background:rgba(249,115,22,.08); }
+  #navbar .st-nav a.active{ color:var(--st-ember); background:rgba(249,115,22,.12); }
+  #navbar .st-nav a.active::before{
+    content:""; position:absolute; left:50%; bottom:5px; width:5px;height:5px;
+    transform:translateX(-50%); border-radius:9999px; background:var(--st-orange);
+  }
+
+  /* Primary CTA */
+  #navbar .st-cta,
+  #navbar .st-mobile-cta{
+    position:relative; overflow:hidden; align-items:center; gap:.5rem;
+    justify-content:center;
+    font-size:.83rem; font-weight:600; color:#fff; padding:.62rem 1.25rem;
+    border-radius:11px; white-space:nowrap;
+    background:linear-gradient(120deg,var(--st-ember),var(--st-orange));
+    box-shadow:0 8px 20px -8px rgba(249,115,22,.6);
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  #navbar .st-cta:hover,
+  #navbar .st-mobile-cta:hover{ transform:translateY(-1px); box-shadow:0 12px 26px -8px rgba(249,115,22,.7); }
+  #navbar .st-cta .st-plane,
+  #navbar .st-mobile-cta .st-plane{ transition:transform .25s ease; }
+  #navbar .st-cta:hover .st-plane,
+  #navbar .st-mobile-cta:hover .st-plane{ transform:translateX(3px) translateY(-1px); }
+  /* sheen sweep */
+  #navbar .st-cta::after,
+  #navbar .st-mobile-cta::after{
+    content:""; position:absolute; top:0; left:-60%; width:40%; height:100%;
+    background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);
+    transform:skewX(-18deg); animation:st-sheen 4.5s ease-in-out infinite;
+  }
+  @keyframes st-sheen{ 0%,60%{left:-60%} 80%,100%{left:130%} }
+
+  /* Mobile / tablet hamburger */
+  #navbar .st-menu-toggle{
+    position:relative;
+    z-index:70;
+    width:44px;
+    height:44px;
+    border:0;
+    border-radius:14px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+    cursor:pointer;
+    color:var(--st-ink);
+    background:rgba(255,255,255,.82);
+    box-shadow:inset 0 0 0 1px rgba(10,10,10,.08), 0 8px 22px -14px rgba(10,10,10,.45);
+    transition:background .2s ease, transform .2s ease, box-shadow .2s ease;
+  }
+  #navbar .st-menu-toggle:hover{ background:#fff; transform:translateY(-1px); box-shadow:inset 0 0 0 1px rgba(234,88,12,.22), 0 12px 28px -16px rgba(10,10,10,.48); }
+  #navbar .st-menu-icon{
+    width:20px;
+    height:16px;
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+  }
+  #navbar .st-menu-icon span{
+    display:block;
+    width:100%;
+    height:2px;
+    border-radius:999px;
+    background:currentColor;
+    transform-origin:center;
+    transition:transform .25s ease, opacity .18s ease;
+  }
+  #navbar .st-menu-toggle.is-open .st-menu-icon span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+  #navbar .st-menu-toggle.is-open .st-menu-icon span:nth-child(2){ opacity:0; }
+  #navbar .st-menu-toggle.is-open .st-menu-icon span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+  #navbar .st-toggle-label{
+    position:absolute;
+    width:1px;
+    height:1px;
+    padding:0;
+    margin:-1px;
+    overflow:hidden;
+    clip:rect(0,0,0,0);
+    white-space:nowrap;
+    border:0;
+  }
+  @media (min-width:1024px){
+    #navbar .st-menu-toggle{ display:none; }
+  }
+
+  /* Mobile / tablet drawer overlay */
+  #navbar .st-mobile-overlay{
+    position:fixed;
+    inset:0;
+    z-index:60;
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transition:opacity .24s ease, visibility .24s ease;
+  }
+  #navbar.menu-open .st-mobile-overlay{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+  }
+  #navbar .st-mobile-backdrop{
+    position:absolute;
+    inset:0;
+    background:rgba(10,10,10,.34);
+    -webkit-backdrop-filter:blur(8px);
+    backdrop-filter:blur(8px);
+  }
+  #navbar .st-mobile-drawer{
+    position:absolute;
+    top:86px;
+    right:1rem;
+    left:1rem;
+    max-width:440px;
+    margin-left:auto;
+    border-radius:22px;
+    padding:1rem;
+    background:rgba(255,255,255,.97);
+    border:1px solid rgba(10,10,10,.08);
+    box-shadow:0 24px 70px -28px rgba(10,10,10,.55);
+    transform:translateY(-16px) scale(.98);
+    opacity:0;
+    transition:transform .28s ease, opacity .22s ease;
+  }
+  #navbar.menu-open .st-mobile-drawer{ transform:translateY(0) scale(1); opacity:1; }
+  #navbar .st-mobile-menu{ display:flex; flex-direction:column; gap:.35rem; }
+  #navbar .st-mobile-menu a{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    width:100%;
+    border-radius:14px;
+    padding:.92rem 1rem;
+    color:#1c1c1c;
+    font-size:.98rem;
+    font-weight:600;
+    transition:background .2s ease, color .2s ease, transform .2s ease;
+  }
+  #navbar .st-mobile-menu a:hover,
+  #navbar .st-mobile-menu a.active{ color:var(--st-ember); background:rgba(249,115,22,.09); }
+  #navbar .st-mobile-menu a:hover{ transform:translateX(2px); }
+  #navbar .st-mobile-menu a.active::before{ display:none; }
+  #navbar .st-mobile-menu a:not(.st-mobile-cta)::after{
+    content:"›" !important;
+    display:inline !important;
+    position:static !important;
+    width:auto !important;
+    height:auto !important;
+    background:none !important;
+    color:rgba(10,10,10,.35);
+    font-size:1.25rem;
+    line-height:1;
+  }
+  #navbar .st-mobile-cta{
+    display:flex;
+    margin-top:.55rem;
+    padding:1rem 1.15rem;
+    color:#fff !important;
+  }
+  #navbar .st-mobile-cta::after{ display:block !important; }
+  #navbar .st-mobile-note{
+    display:block;
+    margin:.2rem .35rem .85rem;
+    color:#737373;
+    font-size:.78rem;
+    font-weight:500;
+  }
+  @media (max-width:480px){
+    #navbar .st-shell{ gap:.75rem; padding-left:.8rem; padding-right:.65rem; }
+    #navbar .st-brand .st-name{ font-size:1.02rem; }
+    #navbar .st-brand .st-tag{ font-size:.52rem; letter-spacing:.18em; }
+    #navbar .st-mark{ width:38px; height:38px; }
+    #navbar .st-mark img{ width:27px; height:27px; }
+    #navbar .st-mobile-drawer{ top:78px; left:.75rem; right:.75rem; }
+  }
+  @media (min-width:1024px){
+    #navbar .st-mobile-overlay{ display:none !important; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    #navbar .st-route::before,#navbar .st-orbit,#navbar .st-cta::after,#navbar .st-mobile-cta::after{ animation:none; }
+    #navbar .st-menu-toggle,#navbar .st-mobile-overlay,#navbar .st-mobile-drawer,#navbar .st-menu-icon span{ transition:none; }
+  }
+</style>
+
+<header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-4 lg:px-6 pt-3 lg:pt-4">
+    <nav class="st-shell relative flex items-center justify-between gap-4 pl-4 pr-4 lg:pl-6 lg:pr-5 py-3" aria-label="Main navigation">
+
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-3 shrink-0 relative z-10" aria-label="Sween Travels home">
+        <span class="st-mark">
+          <span class="st-orbit" aria-hidden="true"></span>
+          <img src="images/sween-travels-logo.png" alt="Sween Travels logo" />
+        </span>
+        <span class="st-brand">
+          <span class="st-name">Sween Travels</span>
+          <span class="st-tag">Visa &amp; Immigration</span>
+        </span>
+      </a>
+
+      <!-- Desktop nav links -->
+      <ul class="st-nav" role="list">
+        <li><a href="index.html" class="nav-link">Start Here</a></li>
+        <li><a href="immigration.html" class="nav-link">Explore Immigration</a></li>
+        <li><a href="visa.html" class="nav-link">Apply for Visa</a></li>
+        <li><a href="about.html" class="nav-link">Meet the Team</a></li>
+      </ul>
+
+      <!-- Desktop CTA -->
+      <a href="contact.html" class="st-cta hidden lg:flex relative z-10">
+        Start Your Journey
+        <svg class="st-plane" width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M3 11.5L21 4l-7.5 17-2.5-7.5L3 11.5z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+        </svg>
+      </a>
+
+      <!-- Mobile/tablet menu toggle -->
+      <button class="st-menu-toggle" type="button" aria-controls="mobile-menu" aria-expanded="false">
+        <span class="st-menu-icon" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+        <span class="st-toggle-label">Open menu</span>
+      </button>
+
+      <!-- Journey route line (signature) -->
+      <span class="st-route" aria-hidden="true"></span>
+    </nav>
+  </div>
+
+  <!-- Mobile/tablet menu drawer -->
+  <div id="mobile-menu" class="st-mobile-overlay" aria-hidden="true">
+    <button class="st-mobile-backdrop" type="button" data-mobile-menu-close aria-label="Close menu"></button>
+    <div class="st-mobile-drawer" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+      <span class="st-mobile-note">Where would you like to go?</span>
+      <nav class="st-mobile-menu" aria-label="Mobile navigation links">
+        <a href="index.html" class="nav-link">Start Here</a>
+        <a href="immigration.html" class="nav-link">Explore Immigration</a>
+        <a href="visa.html" class="nav-link">Apply for Visa</a>
+        <a href="about.html" class="nav-link">Meet the Team</a>
+        <a href="contact.html" class="st-mobile-cta">
+          Start Your Journey
+          <svg class="st-plane" width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M3 11.5L21 4l-7.5 17-2.5-7.5L3 11.5z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </nav>
+    </div>
+  </div>
+
+</header>

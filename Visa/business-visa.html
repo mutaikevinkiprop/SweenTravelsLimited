@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Business Visa | Sween Travels</title>
+
+  <link rel="icon" href="../images/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png" />
+  <link rel="manifest" href="../site.webmanifest" />
+  <meta name="description" content="Business visa support from Sween Travels for meetings, conferences and trade trips abroad, with expert handling of documentation and requirements." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://sweentravels.co.ke/Visa/business-visa.html" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Business Visa | Sween Travels" />
+  <meta property="og:description" content="Business visa support from Sween Travels for meetings, conferences and trade trips abroad, with expert handling of documentation and requirements." />
+  <meta property="og:url" content="https://sweentravels.co.ke/Visa/business-visa.html" />
+  <meta property="og:image" content="https://sweentravels.co.ke/images/sween-travels-logo.png" />
+  <meta property="og:site_name" content="Sween Travels" />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Business Visa | Sween Travels" />
+  <meta name="twitter:description" content="Business visa support from Sween Travels for meetings, conferences and trade trips abroad, with expert handling of documentation and requirements." />
+  <meta name="twitter:image" content="https://sweentravels.co.ke/images/sween-travels-logo.png" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CDN -->
+<!-- Shared site styles (footer, nav, shared components) -->
+  <link rel="stylesheet" href="../css/tailwind.css" />
+  <link rel="stylesheet" href="../css/styles.css" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #FFFFFF;
+      color: #000000;
+      overflow-x: hidden;
+    }
+
+    /* Nav */
+    .nav-link { position: relative; transition: color .2s; }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background: #F97316;
+      transition: width .3s;
+    }
+    .nav-link:hover::after { width: 100%; }
+/* Orange gradient pill */
+    .tag-pill {
+      background: linear-gradient(135deg, #F97316 0%, #FB923C 100%);
+    }
+
+    /* Reveal animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .55s ease, transform .55s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* Hero section - matches the Student Visa top design */
+    .hero-wrap {
+      position: relative;
+      height: 360px;
+      background:
+        radial-gradient(ellipse 70% 80% at 78% 30%, rgba(249,115,22,.55) 0%, rgba(234,88,12,.18) 38%, transparent 70%),
+        radial-gradient(ellipse 50% 60% at 95% 90%, rgba(249,115,22,.35) 0%, transparent 60%),
+        #0a0a0a;
+      overflow: hidden;
+    }
+
+    @media (min-width: 768px)  { .hero-wrap { height: 400px; } }
+    @media (min-width: 1024px) { .hero-wrap { height: 440px; } }
+
+    .hero-ring {
+      position: absolute;
+      border-radius: 9999px;
+      border: 1px solid rgba(255,255,255,.08);
+      pointer-events: none;
+    }
+
+
+    /* Breadcrumb */
+    .bc-sep::before {
+      content: '/';
+      margin: 0 .5rem;
+      color: rgba(255,255,255,.5);
+    }
+
+    /* Checklist */
+    .check-list li {
+      padding-left: 1.75rem;
+      position: relative;
+      margin-bottom: .85rem;
+      line-height: 1.65;
+      color: #374151;
+      font-size: .9375rem;
+    }
+
+    .check-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 5px;
+      width: 16px;
+      height: 16px;
+      background: #F97316;
+      mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='white' d='M13.5 3.5L6 11 2.5 7.5l-1 1L6 13l8.5-8.5z'/%3E%3C/svg%3E") center/contain no-repeat;
+      -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='white' d='M13.5 3.5L6 11 2.5 7.5l-1 1L6 13l8.5-8.5z'/%3E%3C/svg%3E") center/contain no-repeat;
+    }
+
+    /* Cards */
+    .step-card.country-card.visa-card {
+      transition: transform .3s, box-shadow .3s;
+    }
+
+    .step-card:hover.country-card:hover.visa-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 44px rgba(0,0,0,.12);
+    }
+
+    .country-card img.visa-card img {
+      transition: transform .45s ease;
+    }
+
+    .country-card:hover img.visa-card:hover img {
+      transform: scale(1.06);
+    }
+
+    /* Form */
+    .form-input {
+      width: 100%;
+      background: #FFFFFF;
+      border: 1.5px solid #E5E5E5;
+      border-radius: .75rem;
+      padding: .75rem 1rem;
+      font-size: .875rem;
+      color: #000000;
+      transition: border-color .2s, box-shadow .2s;
+    }
+
+    .form-input::placeholder { color: #9CA3AF; }
+
+    .form-input:focus {
+      outline: none;
+      border-color: #F97316;
+      box-shadow: 0 0 0 3px rgba(249,115,22,.15);
+    }
+
+    /* FAQ */
+    details summary { list-style: none; cursor: pointer; }
+    details summary::-webkit-details-marker { display: none; }
+
+    .faq-icon { transition: transform .25s ease; }
+    details[open] .faq-icon { transform: rotate(45deg); }
+
+    /* Sidebar sticky */
+    @media (min-width: 1024px) {
+      .sidebar-sticky { position: sticky; top: 88px; }
+    }
+
+    /* Divider */
+    .hr-deco {
+      height: 1px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        #E5E5E5 20%,
+        #E5E5E5 80%,
+        transparent
+      );
+      margin: 0;
+    }
+
+    /* Footer */
+    .footer-bg { background: #000000; }
+      .agent-card { transition: box-shadow .2s; }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================
+     STICKY NAV
+============================================================ -->
+<div id="header"></div>
+
+
+<!-- ═══════════════════════════════════════════════════
+     FULL-WIDTH HERO IMAGE
+═══════════════════════════════════════════════════ -->
+<section class="hero-wrap" aria-label="Business visa hero">
+  <!-- Decorative rings -->
+  <div class="hero-ring" style="width:420px;height:420px;top:-120px;right:-80px;"></div>
+  <div class="hero-ring" style="width:260px;height:260px;top:40px;right:60px;"></div>
+
+  <!-- Content: breadcrumb + title + CTA, anchored bottom-left -->
+  <div class="absolute bottom-0 left-0 right-0 pb-10 pt-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+      <!-- Breadcrumb -->
+      <nav class="flex items-center mb-4 text-sm text-white/65 reveal" aria-label="Breadcrumb">
+        <a href="../index.html" class="hover:text-white transition-colors font-medium">Home</a>
+        <span class="bc-sep font-medium">Visas</span>
+        <span class="bc-sep text-white font-semibold">Business Visa</span>
+      </nav>
+
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+        <div class="reveal">
+          <!-- Category badge -->
+          <div class="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/25 rounded-full px-4 py-1.5 mb-5">
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-gold animate-pulse"></span>
+            <span class="text-xs font-semibold text-white uppercase tracking-widest">Visa Type</span>
+          </div>
+          <h1 class="font-serif text-5xl lg:text-6xl xl:text-7xl text-white leading-[1.05]">
+            Business visa
+          </h1>
+        </div>
+
+        <!-- Quick CTA -->
+        <div class="reveal shrink-0" style="animation-delay:.1s">
+          <a href="#contact-form"
+             class="inline-flex items-center gap-2.5 bg-brand-gold text-white font-semibold px-7 py-3.5 rounded-full hover:bg-brand-sky transition-colors shadow-xl"
+             aria-label="Apply for a business visa">
+            <svg width="17" height="17" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M7 6V5C7 3.9 7.9 3 9 3H11C12.1 3 13 3.9 13 5V6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M4 6H16C16.55 6 17 6.45 17 7V15C17 15.55 16.55 16 16 16H4C3.45 16 3 15.55 3 15V7C3 6.45 3.45 6 4 6Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+              <path d="M3 10H17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M9 10H11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            Apply now
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     MAIN CONTENT + SIDEBAR (2-col)
+═══════════════════════════════════════════════════ -->
+<section class="py-16 bg-brand-cream" aria-label="Business visa details">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="flex flex-col lg:flex-row gap-10 xl:gap-16">
+
+      <!-- ══ LEFT: Main content ══════════════════════ -->
+      <div class="flex-1 min-w-0 space-y-14">
+
+        <!-- ── Overview paragraph ─────────────────── -->
+        <article class="reveal">
+          <p class="text-brand-navy/80 text-lg leading-relaxed">
+            Expand your business opportunities across borders with our expert guidance. Whether you're attending a conference, negotiating deals, or exploring global markets, we provide tailored solutions to help you secure your business visa seamlessly.
+          </p>
+        </article>
+
+        <!-- ── 3-Step approach ────────────────────── -->
+        <article class="reveal">
+          <p class="text-xs font-semibold text-brand-blue uppercase tracking-widest mb-5">Our Proven Approach</p>
+          <h2 class="font-serif text-3xl lg:text-4xl text-brand-navy leading-tight mb-8">
+            Our proven approach to Business Visa success
+          </h2>
+
+          <div class="space-y-5">
+            <!-- Step 1 -->
+            <div class="step-card bg-white rounded-2xl p-6 border border-brand-border flex gap-5">
+              <div class="w-12 h-12 rounded-xl bg-brand-navy text-white flex items-center justify-center shrink-0 font-serif text-lg">01</div>
+              <div>
+                <h3 class="font-semibold text-brand-navy mb-1.5">Initial Consultation and Eligibility Check</h3>
+                <p class="text-sm text-brand-muted leading-relaxed">We evaluate your business requirements and recommend the most suitable visa options for your travel needs.</p>
+              </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="step-card bg-white rounded-2xl p-6 border border-brand-border flex gap-5">
+              <div class="w-12 h-12 rounded-xl bg-brand-blue text-white flex items-center justify-center shrink-0 font-serif text-lg">02</div>
+              <div>
+                <h3 class="font-semibold text-brand-navy mb-1.5">Document Preparation and Application Review</h3>
+                <p class="text-sm text-brand-muted leading-relaxed">Our team ensures your invitation letters, business documents, and other paperwork meet all requirements for a smooth application process.</p>
+              </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="step-card bg-white rounded-2xl p-6 border border-brand-border flex gap-5">
+              <div class="w-12 h-12 rounded-xl bg-brand-gold flex items-center justify-center shrink-0 font-serif text-lg text-brand-navy">03</div>
+              <div>
+                <h3 class="font-semibold text-brand-navy mb-1.5">Submission and Ongoing Support</h3>
+                <p class="text-sm text-brand-muted leading-relaxed">We handle the submission and monitor your application's progress, providing support until your visa is approved.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- ── Countries we serve ─────────────────── -->
+        <article class="reveal" id="countries">
+          <p class="text-xs font-semibold text-brand-blue uppercase tracking-widest mb-5">Destinations</p>
+          <h2 class="font-serif text-3xl lg:text-4xl text-brand-navy leading-tight mb-8">Countries we serve</h2>
+
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+            <!-- Spain -->
+            <a href="business-visa.html" class="country-card rounded-2xl overflow-hidden block relative shadow-md group" aria-label="Business visa for Spain">
+              <img src="../assets/images/destinations/spain.jpg"
+                alt="Spain, a popular destination" class="w-full h-40 object-cover" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent flex items-end p-4">
+                <div>
+                  <span class="text-white font-semibold text-sm block">Spain</span>
+                  <span class="text-white/60 text-xs mt-0.5 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                    View details
+                    <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6H10M10 6L7 3M10 6L7 9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+                  </span>
+                </div>
+              </div>
+            </a>
+            <!-- Australia -->
+            <a href="business-visa.html" class="country-card rounded-2xl overflow-hidden block relative shadow-md group" aria-label="Business visa for Australia">
+              <img src="../assets/images/destinations/australia.jpg"
+                alt="Australia, a popular destination" class="w-full h-40 object-cover" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent flex items-end p-4">
+                <div>
+                  <span class="text-white font-semibold text-sm block">Australia</span>
+                  <span class="text-white/60 text-xs mt-0.5 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                    View details
+                    <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6H10M10 6L7 3M10 6L7 9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+                  </span>
+                </div>
+              </div>
+            </a>
+            <!-- United States -->
+            <a href="business-visa.html" class="country-card rounded-2xl overflow-hidden block relative shadow-md group" aria-label="Business visa for United States">
+              <img src="../assets/images/destinations/united-states.jpg"
+                alt="United States, a popular destination" class="w-full h-40 object-cover" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent flex items-end p-4">
+                <div>
+                  <span class="text-white font-semibold text-sm block">United States</span>
+                  <span class="text-white/60 text-xs mt-0.5 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                    View details
+                    <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6H10M10 6L7 3M10 6L7 9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+                  </span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </article>
+
+        <!-- ── Why choose us image block ─────────── -->
+        <article class="reveal">
+          <div class="rounded-3xl overflow-hidden shadow-lg relative">
+            <img
+              src="../assets/images/visa/business-visa-consultation.jpg"
+              alt="Business visa consultation in progress"
+              class="w-full h-72 lg:h-96 object-cover"
+              loading="lazy"
+            />
+            <!-- Caption card -->
+            <div class="absolute bottom-5 left-5 right-5 lg:right-auto lg:max-w-xs bg-white/90 backdrop-blur-md rounded-2xl p-5 border border-white/60 shadow-xl">
+              <p class="text-xs font-semibold text-brand-blue uppercase tracking-widest mb-3">Why choose us?</p>
+              <div class="grid grid-cols-2 gap-y-2.5 gap-x-4">
+                <div class="flex items-center gap-2">
+                  <div class="w-4 h-4 rounded-full bg-green-500/15 flex items-center justify-center shrink-0">
+                    <svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M1.5 5L4 7.5L8.5 2.5" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round"/></svg>
+                  </div>
+                  <span class="text-xs text-brand-navy font-medium">Expert guidance</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <div class="w-4 h-4 rounded-full bg-green-500/15 flex items-center justify-center shrink-0">
+                    <svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M1.5 5L4 7.5L8.5 2.5" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round"/></svg>
+                  </div>
+                  <span class="text-xs text-brand-navy font-medium">High success rate</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <div class="w-4 h-4 rounded-full bg-green-500/15 flex items-center justify-center shrink-0">
+                    <svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M1.5 5L4 7.5L8.5 2.5" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round"/></svg>
+                  </div>
+                  <span class="text-xs text-brand-navy font-medium">Full support</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <div class="w-4 h-4 rounded-full bg-green-500/15 flex items-center justify-center shrink-0">
+                    <svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M1.5 5L4 7.5L8.5 2.5" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round"/></svg>
+                  </div>
+                  <span class="text-xs text-brand-navy font-medium">Fast process</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <div class="w-4 h-4 rounded-full bg-green-500/15 flex items-center justify-center shrink-0">
+                    <svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M1.5 5L4 7.5L8.5 2.5" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round"/></svg>
+                  </div>
+                  <span class="text-xs text-brand-navy font-medium">Multilingual</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <div class="w-4 h-4 rounded-full bg-green-500/15 flex items-center justify-center shrink-0">
+                    <svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M1.5 5L4 7.5L8.5 2.5" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round"/></svg>
+                  </div>
+                  <span class="text-xs text-brand-navy font-medium">Client-centered</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- ── Why-choose-us list (text) ─────────── -->
+        <article class="reveal bg-white rounded-3xl p-8 border border-brand-border">
+          <p class="text-xs font-semibold text-brand-blue uppercase tracking-widest mb-5">Advantages</p>
+          <h2 class="font-serif text-3xl text-brand-navy mb-6 leading-tight">Why choose us for your visa journey?</h2>
+          <div>
+            <div class="tick-item">
+              <div class="w-8 h-8 rounded-lg bg-brand-blue/10 flex items-center justify-center shrink-0">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M2 8L6 12L14 4" stroke="#F97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <span class="text-sm font-medium text-brand-navy">Expert guidance from certified immigration specialists</span>
+            </div>
+            <div class="tick-item">
+              <div class="w-8 h-8 rounded-lg bg-brand-blue/10 flex items-center justify-center shrink-0">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M2 8L6 12L14 4" stroke="#F97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <span class="text-sm font-medium text-brand-navy">High success rate backed by years of experience</span>
+            </div>
+            <div class="tick-item">
+              <div class="w-8 h-8 rounded-lg bg-brand-blue/10 flex items-center justify-center shrink-0">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M2 8L6 12L14 4" stroke="#F97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <span class="text-sm font-medium text-brand-navy">Comprehensive end-to-end application support</span>
+            </div>
+            <div class="tick-item">
+              <div class="w-8 h-8 rounded-lg bg-brand-blue/10 flex items-center justify-center shrink-0">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M2 8L6 12L14 4" stroke="#F97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <span class="text-sm font-medium text-brand-navy">Fast and efficient processing to meet your deadlines</span>
+            </div>
+            <div class="tick-item">
+              <div class="w-8 h-8 rounded-lg bg-brand-blue/10 flex items-center justify-center shrink-0">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M2 8L6 12L14 4" stroke="#F97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <span class="text-sm font-medium text-brand-navy">Multilingual support across 10+ languages</span>
+            </div>
+            <div class="tick-item">
+              <div class="w-8 h-8 rounded-lg bg-brand-blue/10 flex items-center justify-center shrink-0">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M2 8L6 12L14 4" stroke="#F97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <span class="text-sm font-medium text-brand-navy">Truly client-centered, personalized approach</span>
+            </div>
+          </div>
+        </article>
+
+      </div><!-- /main content -->
+
+
+      <!-- ══ RIGHT: Sidebar ═════════════════════════ -->
+      <aside class="lg:w-80 xl:w-96 shrink-0 space-y-6 sidebar-sticky self-start" aria-label="Contact sidebar">
+        <!-- Assigned consultant -->
+        <div class="agent-card bg-white rounded-3xl overflow-hidden border border-brand-border shadow-sm reveal">
+          <div class="bg-brand-navy px-6 pt-6 pb-2">
+            <p class="text-xs font-semibold text-brand-gold uppercase tracking-widest mb-4">Your dedicated consultant</p>
+            <div class="flex items-end gap-4">
+              <div class="w-20 h-20 rounded-2xl overflow-hidden border-2 border-white/20 shrink-0">
+                <img src="../assets/images/team/ashley-cherop.jpg"
+                  alt="Ashley Cherop, Senior Immigration Consultant at Sween Travels"
+                  class="w-full h-full object-cover" loading="lazy" />
+              </div>
+              <div class="pb-1 min-w-0">
+                <h3 class="font-serif text-xl text-white leading-tight">Ashley Cherop</h3>
+                <p class="text-white/50 text-sm">Senior Immigration Consultant</p>
+              </div>
+            </div>
+          </div>
+          <div class="px-6 py-5 bg-white">
+            <p class="text-sm text-brand-muted leading-relaxed mb-4">Ashley guides clients through business and investor visa routes, from first enquiry to a confident submission.</p>
+            <a href="#contact-form"
+               class="tag-pill w-full text-white font-medium py-3 rounded-xl text-sm text-center flex items-center justify-center gap-2 hover:opacity-90 transition-opacity"
+               aria-label="Book a call with Ashley Cherop">
+              <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
+                <path d="M2 4.5C2 3.4 2.9 2.5 4 2.5H5.5L7 6L5.25 7.25C6.1 8.97 7.03 9.9 8.75 10.75L10 9.5L13.5 11V12.5C13.5 13.6 12.6 14.5 11.5 14.5C6.25 14.5 2 10.25 2 5Z" stroke="white" stroke-width="1.4" fill="none"/>
+              </svg>
+              Book a call
+            </a>
+          </div>
+        </div>
+
+
+        <!-- Contact Form Card -->
+        <div id="contact-form" class="bg-white rounded-3xl overflow-hidden border border-brand-border shadow-sm reveal">
+          <div class="bg-brand-navy px-7 py-6">
+            <p class="text-xs font-semibold text-brand-gold uppercase tracking-widest mb-2">Free consultation</p>
+            <h3 class="font-serif text-2xl text-white leading-snug">Get in touch with us</h3>
+          </div>
+          <div class="p-7">
+            <form id="visa-form" name="visa-enquiry" method="POST" action="../send-lead.php" onsubmit="handleForm(event)" novalidate class="space-y-4">
+              <input type="hidden" name="form-name" value="visa-enquiry" />
+              <input type="hidden" name="subject" value="Business visa enquiry" />
+              <p class="hidden" aria-hidden="true"><label>Leave blank: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
+              <div>
+                <label for="f-name" class="block text-xs font-semibold text-brand-navy mb-1.5">Full name</label>
+                <input id="f-name" name="name" type="text" autocomplete="name" required placeholder="Enter your name" class="form-input" aria-required="true" />
+              </div>
+              <div>
+                <label for="f-email" class="block text-xs font-semibold text-brand-navy mb-1.5">Email</label>
+                <input id="f-email" name="email" type="email" autocomplete="email" required placeholder="you@example.com" class="form-input" aria-required="true" />
+              </div>
+              <div>
+                <label for="f-phone" class="block text-xs font-semibold text-brand-navy mb-1.5">Phone number</label>
+                <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+254 700 000 000" class="form-input" />
+              </div>
+              <div>
+                <label for="f-msg" class="block text-xs font-semibold text-brand-navy mb-1.5">Message</label>
+                <textarea id="f-msg" name="message" rows="4" placeholder="Tell us about your business travel plans…" class="form-input resize-none" required aria-required="true"></textarea>
+              </div>
+
+
+              <label class="flex items-start gap-3 text-xs text-brand-navy/70 leading-relaxed">
+                <input type="checkbox" name="privacy-consent" value="yes" required class="mt-1 h-4 w-4 rounded border-brand-border text-brand-blue focus:ring-brand-blue" />
+                <span>I agree that Sween Travels may use my details to respond to my enquiry in line with the <a href="../privacy.html" class="text-brand-blue font-semibold hover:underline">Privacy Policy</a>.</span>
+              </label>
+
+              <!-- Error / success states -->
+              <p id="form-error" class="text-red-500 text-xs hidden" role="alert">Please fill in all required fields.</p>
+              <p id="form-success" class="text-green-600 text-xs hidden" role="status" aria-live="polite">✓ Thank you! We'll be in touch shortly.</p>
+
+              <button type="submit"
+                class="tag-pill w-full text-white font-semibold py-3.5 rounded-xl text-sm hover:opacity-90 transition-opacity shadow-md"
+                aria-label="Submit consultation request">
+                Send message
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Contact Info Card -->
+        <div class="bg-white rounded-3xl p-6 border border-brand-border shadow-sm reveal" style="animation-delay:.08s">
+          <p class="text-xs font-semibold text-brand-blue uppercase tracking-widest mb-5">Contact info</p>
+
+          <!-- Phone numbers -->
+          <div class="space-y-3 pb-4 border-b border-brand-border mb-4">
+            <a href="tel:+254759187912" class="flex items-center gap-3 group">
+              <div class="w-9 h-9 rounded-xl bg-brand-cream flex items-center justify-center shrink-0 group-hover:bg-brand-blue transition-colors">
+                <svg width="15" height="15" viewBox="0 0 18 18" fill="none">
+                  <path d="M3 5.5C3 4.4 3.9 3.5 5 3.5H6.5L8 7L6.25 8.25C7.1 9.97 8.03 10.9 9.75 11.75L11 10L14.5 11.5V13C14.5 14.1 13.6 15 12.5 15C7.25 15 3 10.75 3 5.5Z" stroke="#F97316" stroke-width="1.4" fill="none" class="group-hover:stroke-white transition-colors"/>
+                </svg>
+              </div>
+              <span class="text-sm text-brand-navy group-hover:text-brand-blue transition-colors">(+254) 759 187 912</span>
+            </a>
+          </div>
+
+          <!-- Email -->
+          <a href="mailto:sweentravelslimited@gmail.com" class="flex items-center gap-3 group">
+            <div class="w-9 h-9 rounded-xl bg-brand-cream flex items-center justify-center shrink-0 group-hover:bg-brand-blue transition-colors">
+              <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
+                <rect x="2" y="4" width="12" height="9" rx="1.5" stroke="#F97316" stroke-width="1.4" class="group-hover:stroke-white transition-colors"/>
+                <path d="M2 5.5L8 9.5L14 5.5" stroke="#F97316" stroke-width="1.4" stroke-linecap="round" class="group-hover:stroke-white transition-colors"/>
+              </svg>
+            </div>
+            <span class="text-sm text-brand-navy group-hover:text-brand-blue transition-colors">sweentravelslimited@gmail.com</span>
+          </a>
+        </div>
+
+        <!-- Office Hours -->
+        <div class="bg-brand-navy rounded-3xl p-6 shadow-sm reveal" style="animation-delay:.12s">
+          <p class="text-xs font-semibold text-brand-gold uppercase tracking-widest mb-4">Office hours</p>
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2.5">
+                <div class="w-2 h-2 rounded-full bg-green-400"></div>
+                <span class="text-sm text-white">Mon – Sat</span>
+              </div>
+              <span class="text-sm text-white/60">9 AM – 6 PM</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2.5">
+                <div class="w-2 h-2 rounded-full bg-red-400"></div>
+                <span class="text-sm text-white/50">Sunday</span>
+              </div>
+              <span class="text-sm text-white/40">Closed</span>
+            </div>
+          </div>
+          <div class="mt-5 pt-5 border-t border-white/10 flex gap-3 items-start">
+            <svg width="16" height="16" viewBox="0 0 18 18" fill="none" class="shrink-0 mt-0.5">
+              <path d="M9 2C6.24 2 4 4.24 4 7c0 3.5 5 9 5 9s5-5.5 5-9c0-2.76-2.24-5-5-5z" stroke="white" stroke-width="1.4"/>
+              <circle cx="9" cy="7" r="2" stroke="white" stroke-width="1.4"/>
+            </svg>
+            <p class="text-white/50 text-xs leading-relaxed">View Park Towers – 15th Floor, Utalii Lane, Nairobi.</p>
+          </div>
+        </div>
+
+        <!-- Other visas quick links -->
+        <div class="bg-white rounded-3xl p-6 border border-brand-border shadow-sm reveal" style="animation-delay:.16s">
+          <p class="text-xs font-semibold text-brand-blue uppercase tracking-widest mb-4">Other visa types</p>
+          <div class="space-y-2">
+            <a href="student-visa.html" class="flex items-center justify-between px-4 py-3 rounded-xl border border-brand-border hover:bg-brand-navy hover:border-brand-navy group transition-colors" aria-label="Student visa">
+              <span class="text-sm font-medium text-brand-navy group-hover:text-white transition-colors">Student visa</span>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L8 3M12 7L8 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" class="text-brand-muted group-hover:text-white transition-colors"/></svg>
+            </a>
+            <a href="tourist-visa.html" class="flex items-center justify-between px-4 py-3 rounded-xl border border-brand-border hover:bg-brand-navy hover:border-brand-navy group transition-colors" aria-label="Tourist visa">
+              <span class="text-sm font-medium text-brand-navy group-hover:text-white transition-colors">Tourist visa</span>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L8 3M12 7L8 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" class="text-brand-muted group-hover:text-white transition-colors"/></svg>
+            </a>
+            <a href="work-visa.html" class="flex items-center justify-between px-4 py-3 rounded-xl border border-brand-border hover:bg-brand-navy hover:border-brand-navy group transition-colors" aria-label="Work visa">
+              <span class="text-sm font-medium text-brand-navy group-hover:text-white transition-colors">Work visa</span>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L8 3M12 7L8 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" class="text-brand-muted group-hover:text-white transition-colors"/></svg>
+            </a>
+            <a href="family-reunion-visa.html" class="flex items-center justify-between px-4 py-3 rounded-xl border border-brand-border hover:bg-brand-navy hover:border-brand-navy group transition-colors" aria-label="Family reunion visa">
+              <span class="text-sm font-medium text-brand-navy group-hover:text-white transition-colors">Family reunion visa</span>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L8 3M12 7L8 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" class="text-brand-muted group-hover:text-white transition-colors"/></svg>
+            </a>
+            <a href="visitor-visa.html" class="flex items-center justify-between px-4 py-3 rounded-xl border border-brand-border hover:bg-brand-navy hover:border-brand-navy group transition-colors" aria-label="Visitor visa">
+              <span class="text-sm font-medium text-brand-navy group-hover:text-white transition-colors">Visitor visa</span>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L8 3M12 7L8 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" class="text-brand-muted group-hover:text-white transition-colors"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </aside><!-- /sidebar -->
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     SUCCESS STORIES (client case studies)
+     Disabled for later use. To restore the section,
+     delete these four lines and the END line below.
+<section class="py-24 bg-white" aria-label="Case studies">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+    <div class="text-center mb-14 reveal">
+      <span class="text-brand-blue text-xs font-semibold uppercase tracking-widest mb-3 block">Success Stories</span>
+      <h2 class="font-serif text-4xl lg:text-5xl text-brand-navy max-w-lg mx-auto leading-tight">Inspiring client case studies</h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+
+      <article class="case-card group reveal cursor-pointer">
+        <div class="rounded-3xl overflow-hidden mb-5 shadow-md">
+          <img src="../assets/images/testimonials/client-study-abroad-success.jpg"
+            alt="Client who achieved their study-abroad dream" class="w-full h-60 object-cover" loading="lazy" />
+        </div>
+        <h3 class="font-serif text-2xl text-brand-navy mb-3 group-hover:text-brand-blue transition-colors">Emma's study abroad dream</h3>
+        <p class="text-sm text-brand-muted leading-relaxed mb-4">Successfully navigated financial documentation issues and university requirements, enabling her to study at a top Canadian university.</p>
+      </article>
+
+      <article class="case-card group reveal cursor-pointer" style="animation-delay:.1s">
+        <div class="rounded-3xl overflow-hidden mb-5 shadow-md">
+          <img src="../assets/images/testimonials/client-permanent-residency-success.jpg"
+            alt="Client who secured permanent residency" class="w-full h-60 object-cover" loading="lazy" />
+        </div>
+        <h3 class="font-serif text-2xl text-brand-navy mb-3 group-hover:text-brand-blue transition-colors">John's path to permanent residency</h3>
+        <p class="text-sm text-brand-muted leading-relaxed mb-4">Overcoming challenges with incomplete documentation and complex immigration policies to secure permanent residency within six months.</p>
+      </article>
+
+      <article class="case-card group reveal cursor-pointer" style="animation-delay:.2s">
+        <div class="rounded-3xl overflow-hidden mb-5 shadow-md">
+          <img src="../assets/images/testimonials/client-family-reunited-success.jpg"
+            alt="Family successfully reunited abroad" class="w-full h-60 object-cover" loading="lazy" />
+        </div>
+        <h3 class="font-serif text-2xl text-brand-navy mb-3 group-hover:text-brand-blue transition-colors">Reuniting the Patel family</h3>
+        <p class="text-sm text-brand-muted leading-relaxed mb-4">Resolved family sponsorship hurdles, reuniting the Patel family with their son in the UK without delays.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+═══ END SUCCESS STORIES (delete this line to restore) ═══ -->
+
+
+<!-- ═══════════════════════════════════════════════════
+     OTHER VISAS WE SPECIALISE IN
+═══════════════════════════════════════════════════ -->
+<section class="py-24 bg-brand-cream" aria-label="Other visa types">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 reveal">
+      <div>
+        <span class="text-brand-blue text-xs font-semibold uppercase tracking-widest mb-3 block">Explore More</span>
+        <h2 class="font-serif text-4xl lg:text-5xl text-brand-navy leading-tight">Other visas we specialize in</h2>
+      </div>
+      <a href="../visa.html" class="tag-pill self-start md:self-auto text-white text-sm font-medium px-5 py-3 rounded-full hover:opacity-90 transition-opacity shrink-0" aria-label="View all visa types">
+        View all visas
+      </a>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Student Visa -->
+      <a href="student-visa.html" class="visa-card bg-white rounded-3xl overflow-hidden block group reveal" aria-label="Student visa">
+        <div class="p-6 flex items-start justify-between gap-4">
+          <div>
+            <h3 class="font-serif text-xl text-brand-navy mb-1.5 group-hover:text-brand-blue transition-colors">Student visa</h3>
+            <p class="text-sm text-brand-muted leading-relaxed">Study at top universities worldwide with our expert application support.</p>
+          </div>
+          <div class="w-9 h-9 rounded-full border border-brand-border flex items-center justify-center shrink-0 group-hover:bg-brand-blue group-hover:border-brand-blue transition-colors mt-1">
+            <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L8 3M12 7L8 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" class="text-brand-muted group-hover:text-white transition-colors"/></svg>
+          </div>
+        </div>
+      </a>
+
+      <!-- Tourist Visa -->
+      <a href="tourist-visa.html" class="visa-card bg-white rounded-3xl overflow-hidden block group reveal" style="animation-delay:.08s" aria-label="Tourist visa">
+        <div class="p-6 flex items-start justify-between gap-4">
+          <div>
+            <h3 class="font-serif text-xl text-brand-navy mb-1.5 group-hover:text-brand-blue transition-colors">Tourist visa</h3>
+            <p class="text-sm text-brand-muted leading-relaxed">Explore the world hassle-free with our streamlined tourist visa services.</p>
+          </div>
+          <div class="w-9 h-9 rounded-full border border-brand-border flex items-center justify-center shrink-0 group-hover:bg-brand-blue group-hover:border-brand-blue transition-colors mt-1">
+            <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L8 3M12 7L8 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" class="text-brand-muted group-hover:text-white transition-colors"/></svg>
+          </div>
+        </div>
+      </a>
+
+      <!-- Family Reunion Visa -->
+      <a href="family-reunion-visa.html" class="visa-card bg-white rounded-3xl overflow-hidden block group reveal" style="animation-delay:.16s" aria-label="Family reunion visa">
+        <div class="p-6 flex items-start justify-between gap-4">
+          <div>
+            <h3 class="font-serif text-xl text-brand-navy mb-1.5 group-hover:text-brand-blue transition-colors">Family reunion visa</h3>
+            <p class="text-sm text-brand-muted leading-relaxed">Reunite with your loved ones abroad with personalized family visa support.</p>
+          </div>
+          <div class="w-9 h-9 rounded-full border border-brand-border flex items-center justify-center shrink-0 group-hover:bg-brand-blue group-hover:border-brand-blue transition-colors mt-1">
+            <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L8 3M12 7L8 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" class="text-brand-muted group-hover:text-white transition-colors"/></svg>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     FAQ ACCORDION
+═══════════════════════════════════════════════════ -->
+<section class="py-24 bg-white" aria-label="Frequently asked questions">
+  <div class="max-w-3xl mx-auto px-6 lg:px-8">
+
+    <div class="text-center mb-14 reveal">
+      <span class="text-brand-blue text-xs font-semibold uppercase tracking-widest mb-3 block">FAQ</span>
+      <h2 class="font-serif text-4xl lg:text-5xl text-brand-navy leading-tight">Frequently asked questions</h2>
+    </div>
+
+    <div class="space-y-3 reveal">
+
+      <details class="bg-brand-cream rounded-2xl overflow-hidden border border-brand-border group">
+        <summary class="flex items-center justify-between px-6 py-5">
+          <span class="font-medium text-brand-navy text-[.9375rem] pr-4">How long does the visa application process take?</span>
+          <span class="faq-icon shrink-0 w-7 h-7 rounded-full bg-white border border-brand-border flex items-center justify-center text-brand-navy group-open:bg-brand-navy group-open:border-brand-navy group-open:text-white transition-all">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2V10M2 6H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </span>
+        </summary>
+        <div class="px-6 pb-5 text-brand-muted text-sm leading-relaxed border-t border-brand-border pt-4 -mt-px">
+          The processing time depends on the visa type and the country you're applying to. It can range from a few weeks to several months. We provide accurate timelines during the consultation phase.
+        </div>
+      </details>
+
+      <details class="bg-brand-cream rounded-2xl overflow-hidden border border-brand-border group">
+        <summary class="flex items-center justify-between px-6 py-5">
+          <span class="font-medium text-brand-navy text-[.9375rem] pr-4">What documents are required for a visa application?</span>
+          <span class="faq-icon shrink-0 w-7 h-7 rounded-full bg-white border border-brand-border flex items-center justify-center text-brand-navy group-open:bg-brand-navy group-open:border-brand-navy group-open:text-white transition-all">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2V10M2 6H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </span>
+        </summary>
+        <div class="px-6 pb-5 text-brand-muted text-sm leading-relaxed border-t border-brand-border pt-4 -mt-px">
+          Required documents vary by visa type but generally include a valid passport, proof of financial stability, and other relevant records like employment or study documents. We will guide you through the specific requirements for your application.
+        </div>
+      </details>
+
+      <details class="bg-brand-cream rounded-2xl overflow-hidden border border-brand-border group">
+        <summary class="flex items-center justify-between px-6 py-5">
+          <span class="font-medium text-brand-navy text-[.9375rem] pr-4">Can I apply for a visa online?</span>
+          <span class="faq-icon shrink-0 w-7 h-7 rounded-full bg-white border border-brand-border flex items-center justify-center text-brand-navy group-open:bg-brand-navy group-open:border-brand-navy group-open:text-white transition-all">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2V10M2 6H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </span>
+        </summary>
+        <div class="px-6 pb-5 text-brand-muted text-sm leading-relaxed border-t border-brand-border pt-4 -mt-px">
+          Yes, many countries offer online visa application portals. Our team can assist you in completing and submitting your application online for convenience and accuracy.
+        </div>
+      </details>
+
+      <details class="bg-brand-cream rounded-2xl overflow-hidden border border-brand-border group">
+        <summary class="flex items-center justify-between px-6 py-5">
+          <span class="font-medium text-brand-navy text-[.9375rem] pr-4">What happens if my visa application is rejected?</span>
+          <span class="faq-icon shrink-0 w-7 h-7 rounded-full bg-white border border-brand-border flex items-center justify-center text-brand-navy group-open:bg-brand-navy group-open:border-brand-navy group-open:text-white transition-all">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2V10M2 6H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </span>
+        </summary>
+        <div class="px-6 pb-5 text-brand-muted text-sm leading-relaxed border-t border-brand-border pt-4 -mt-px">
+          If your application is rejected, we will review the reasons for denial and help you reapply by addressing any issues or missing documentation.
+        </div>
+      </details>
+
+      <details class="bg-brand-cream rounded-2xl overflow-hidden border border-brand-border group">
+        <summary class="flex items-center justify-between px-6 py-5">
+          <span class="font-medium text-brand-navy text-[.9375rem] pr-4">Do I need an immigration lawyer for my visa application?</span>
+          <span class="faq-icon shrink-0 w-7 h-7 rounded-full bg-white border border-brand-border flex items-center justify-center text-brand-navy group-open:bg-brand-navy group-open:border-brand-navy group-open:text-white transition-all">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2V10M2 6H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </span>
+        </summary>
+        <div class="px-6 pb-5 text-brand-muted text-sm leading-relaxed border-t border-brand-border pt-4 -mt-px">
+          While it's not always required, having expert assistance can increase your chances of approval. We offer professional immigration consultations to ensure your application is complete and compliant.
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<div id="footer"></div>
+
+
+<!-- ═══════════════════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════════════════ -->
+<script src="../js/components.js"></script>
+</body>
+</html>
